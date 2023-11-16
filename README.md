@@ -1,17 +1,17 @@
-# node-file-download
+# node-file-downloader
 
 Simple file downloader module for Node.js
 
 ## Installation
 
 ```bash
-npm install @paradoxepoch/node-file-download
+npm install @paradoxepoch/node-file-downloader
 ```
 
 ## Usage
 
 ```javascript
-import fileDownload from '@paradoxepoch/node-file-download';
+import fileDownload from '@paradoxepoch/node-file-downloader';
 await fileDownload(url, filePath, options);
 ```
 
