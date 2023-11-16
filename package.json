@@ -1,6 +1,6 @@
 {
   "name": "@paradoxepoch/node-file-downloader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple file downloader module for Node.js",
   "main": "index.js",
   "type": "module",

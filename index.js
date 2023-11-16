@@ -32,8 +32,19 @@ export default async function downloadFile(url, filePath = null, options = {}) {
             maxRedirects: 5,
         });
 
-        // Get the file extension from the url
-        const fileExtension = path.extname(new URL(url).pathname);
+        // Get the file extension from the url if present
+        let fileExtension = path.extname(new URL(url).pathname);
+
+        // Try to get the file extension from the content-disposition header since this is better
+        const contentDisposition = response.headers['content-disposition'];
+        if (contentDisposition) {
+            const filenameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+            if (filenameMatch && filenameMatch[1]) {
+                const filename = filenameMatch[1].replace(/['"]/g, '');
+                const extension = filename.split('.').pop();
+                fileExtension = '.' + extension;
+            }
+        }
 
         // If filePath is specified and appendMissingExtension is true, append the file extension to the filePath if it is missing
         if (filePath && options.appendMissingExtension && !path.extname(filePath)) filePath += fileExtension;

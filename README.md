@@ -50,7 +50,7 @@ const outputPath = await fileDownload('https://example.com/dummy.pdf', '/path/to
 console.log(outputPath);
 ```
 
-If the file extension is omitted from the [filePath](#usage), the extension will automatically be appended to the output file based on the download URL if present. This behaviour can be disabled by setting the [appendMissingExtension](#options) option to false.
+If the file extension is omitted from the [filePath](#usage), the extension will automatically be appended to the output file based on the Content-Disposition header or extension in the download URL if present. This behaviour can be disabled by setting the [appendMissingExtension](#options) option to false.
 
 ```javascript
 // Download to specified path (note the missing file extension in the filePath param)
@@ -83,6 +83,6 @@ const filePath = await fileDownload('https://example.com/dummy.pdf', null, {
 | downloadMsg            | `string`                | "Downloading, please wait..."  | The message shown in the console when the file is downloading. If falsy, no message is shown.   |
 | successMsg             | `string`                | "Download completed"           | The message shown in the console when the download completes. If falsy, no message is shown.    |
 | errorMsg               | `string`                | "Download failed"              | The message shown in the console if the download fails. If falsy, no message is shown.          |
-| appendMissingExtension | `boolean`               | true                           | If true, appends file extension based on the URL if the save path does not include one. This option is ignored when filePath is falsy. |
+| appendMissingExtension | `boolean`               | true                           | If true, appends file extension based on response headers or the URL if the save path does not include one. This option is ignored when filePath is falsy. |
 | httpMethod             | `string`                | "get"                          | The HTTP method to use for the download. Defaults to "get".      |
 | showProgressBar        | `boolean`               | true                           | If true, displays a progress bar when the server includes a "Content-Length" header. |
