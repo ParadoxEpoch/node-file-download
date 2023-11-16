@@ -23,28 +23,25 @@ await fileDownload(url, filePath, options);
 
 ## Examples
 
-### Simple download to system temp directory
+### Simple download to local temp directory
 
-The easiest way to use the module. Simply specify the url parameter and the file will be downloaded with a random name to the system's temp directory.
+The easiest way to use this module. Simply specify the [url](#usage) parameter and the file will be downloaded with a random name to your local temp directory on the system.
 
 ```javascript
-import fileDownload from '@paradoxepoch/node-file-download';
-
 // Download to temp directory with random file name
 const outputPath = await fileDownload('https://example.com/dummy.pdf');
 
 // Log the path that the file was saved to
 // eg: /tmp/tmp-21596-AnUG7d8LM75X-.pdf
+// eg: C:\Users\User\AppData\Local\Temp
 console.log(outputPath);
 ```
 
 ### Simple download to specified path
 
-Another easy way to use the module. Just specify the url and filePath parameters to download the file to a local path on the system.
+Another easy way to use the module. Just specify the [url](#usage) and [filePath](#usage) parameters to download the file to a local path on the system.
 
 ```javascript
-import fileDownload from '@paradoxepoch/node-file-download';
-
 // Download to specified path
 const outputPath = await fileDownload('https://example.com/dummy.pdf', '/path/to/file.pdf');
 
@@ -53,13 +50,9 @@ const outputPath = await fileDownload('https://example.com/dummy.pdf', '/path/to
 console.log(outputPath);
 ```
 
-### Download to path and automatically append extension
-
-If the file extension is omitted from the filePath, the extension will automatically be appended to the output file based on the download URL if present. This behaviour can be disabled by setting the [appendMissingExtension](#options) option to false.
+If the file extension is omitted from the [filePath](#usage), the extension will automatically be appended to the output file based on the download URL if present. This behaviour can be disabled by setting the [appendMissingExtension](#options) option to false.
 
 ```javascript
-import fileDownload from '@paradoxepoch/node-file-download';
-
 // Download to specified path (note the missing file extension in the filePath param)
 const outputPath = await fileDownload('https://example.com/dummy.pdf', '/path/to/file');
 
@@ -68,9 +61,9 @@ const outputPath = await fileDownload('https://example.com/dummy.pdf', '/path/to
 console.log(outputPath);
 ```
 
-### Download to system temp directory with custom options
+### Download to local temp directory with custom options
 
-Passing filePath as `null` *(or any falsy value)* will allow you to specify the [options](#options) object while still downloading the file the system's temp directory with a random filename.
+Passing [filePath](#usage) as `null` *(or any falsy value)* will allow you to specify the [options](#options) object while still downloading the file to the local temp directory with a random filename.
 
 ```javascript
 // Download to a specified directory with custom options
