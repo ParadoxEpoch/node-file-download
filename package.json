@@ -1,6 +1,6 @@
 {
-  "name": "@paradoxepoch/node-file-download",
-  "version": "1.0.0",
+  "name": "@paradoxepoch/node-file-downloader",
+  "version": "1.0.1",
   "description": "Simple file downloader module for Node.js",
   "main": "index.js",
   "type": "module",
@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paradoxepoch/node-file-download.git"
+    "url": "git+https://github.com/paradoxepoch/node-file-downloader.git"
   },
   "bugs": {
-    "url": "https://github.com/paradoxepoch/node-file-download/issues"
+    "url": "https://github.com/paradoxepoch/node-file-downloader/issues"
   },
-  "homepage": "https://github.com/paradoxepoch/node-file-download#readme"
+  "homepage": "https://github.com/paradoxepoch/node-file-downloader#readme"
 }
