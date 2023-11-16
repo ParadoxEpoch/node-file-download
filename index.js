@@ -48,7 +48,7 @@ export default async function downloadFile(url, filePath = null, options = {}) {
             // If the content-length header is present, use a progress bar
 
             preSpinner.stop();
-            console.log(`\x1b[34m${options.downloadMsg}\x1b[0m`);
+            if (options.downloadMsg) console.log(`\x1b[34m${options.downloadMsg}\x1b[0m`);
             const progressBar = new ProgressBar.SingleBar({}, ProgressBar.Presets.shades_classic);
             progressBar.start(parseInt(response.headers['content-length']), 0);
 
@@ -78,7 +78,8 @@ export default async function downloadFile(url, filePath = null, options = {}) {
             // If the content-length header is not present, use a spinner
 
             preSpinner.stop();
-            const spinner = ora(`\x1b[34m${options.downloadMsg}\x1b[0m`).start();
+            const spinner = ora(`\x1b[34m${options.downloadMsg}\x1b[0m`);
+            if (options.downloadMsg) spinner.start();
             response.data.pipe(writer);
 
             await new Promise((resolve, reject) => {
