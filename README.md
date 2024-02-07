@@ -85,4 +85,6 @@ const filePath = await fileDownload('https://example.com/dummy.pdf', null, {
 | errorMsg               | `string`                | "Download failed"              | The message shown in the console if the download fails. If falsy, no message is shown.          |
 | appendMissingExtension | `boolean`               | true                           | If true, appends file extension based on response headers or the URL if the save path does not include one. This option is ignored when filePath is falsy. |
 | httpMethod             | `string`                | "get"                          | The HTTP method to use for the download. Defaults to "get".      |
+| appendHeaders          | `object`                | {}                             | An object containing custom headers to send with the request.    |
 | showProgressBar        | `boolean`               | true                           | If true, displays a progress bar when the server includes a "Content-Length" header. |
+| throwOnFail            | `boolean`               | true                           | If true, throws an error if the download fails. If false, the error is only logged to the console as errorMsg and returns null. |
